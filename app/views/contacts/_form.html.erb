@@ -1,0 +1,46 @@
+<%= form_for(@contact) do |f| %> 
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="container pt">
+    <div class="row mt">
+      <div class="col-lg-6 col-lg-offset-3 centered">
+        <h3>CONTACT ME</h3>
+        <hr>
+        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+      </div>
+    </div>
+    <div class="row mt">  
+      <div class="col-lg-8 col-lg-offset-2">
+        <form role="form">
+          <div class="form-group">
+            <%= f.text_field :name , class: "form-control" , placeholder: "Enter Name" , required: true%>
+            <br>
+          </div>
+          <div class="form-group">
+            <%= f.email_field :email , class: "form-control" , placeholder: "Enter Email" , required: true %>
+            <br>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :subject , class: "form-control" , placeholder: "Enter Subject" , required: true%>
+          </div>
+          <div class="form-group">
+          <%= f.text_area :body , class: "form-control" , placeholder: "Enter Body" ,rows: "6" , required: true%>
+            <br>
+            </div>
+          <div class="form-group">
+            <%= f.submit 'Submit' , class: 'btn btn-primary' %>
+          </div>         
+<% end %>
+      </div>
+    </div><!-- /row -->
+  </div><!-- /container -->
